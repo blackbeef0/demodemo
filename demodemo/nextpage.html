@@ -5,73 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles2.css">
     <title>履歷表</title>
+    <style>
+        /* 返回頂部按鈕的樣式 */
+        #backToTop {
+            display: none; /* 預設隱藏 */
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #backToTop:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="resume-container">
         <h1 class="name">XX</h1>
         <p class="contact-info">電話: 09XX-XXX-XXX | Email: @example.com</p>
+
+        <nav>
+            <a href="#profile">個人簡介</a>
+            <a href="#education">教育背景</a>
+            <a href="#experience">工作經驗</a>
+            <a href="#skills">技能</a>
+            <a href="#certificates">證照</a>
+            <a href="#projects">作品成果</a>
+        </nav>
         
-        <h2>個人簡介</h2>
-        <p>興趣多元&喜好研究，研究範圍廣泛(EX:從New Jeans的kop到宇宙黑洞觀測)，個人日常生活的行動準據-謹慎評估的同時，會不斷嘗試與努力，突破規則與界限，追求更高的境界。</p>
+        <section id="profile">
+            <h2>個人簡介</h2>
+            <p>興趣多元&喜好研究，研究範圍廣泛(EX:從New Jeans的kop到宇宙黑洞觀測)，個人日常生活的行動準據-謹慎評估的同時，會不斷嘗試與努力，突破規則與界限，追求更高的境界。</p>
+        </section>
         
-        <h2>教育背景</h2>
-        <table>
-            <tr>
-                <th>學校</th>
-                <th>學位</th>
-                <th>年份</th>
-            </tr>
-            <tr>
-                <td>國立XX大學</td>
-                <td>資訊科系</td>
-                <td>2022 - 2024</td>
-            </tr>
-        </table>
+        <section id="education">
+            <h2>教育背景</h2>
+            <table>
+                <tr>
+                    <th>學校</th>
+                    <th>學位</th>
+                    <th>年份</th>
+                </tr>
+                <tr>
+                    <td>國立XX大學</td>
+                    <td>資訊科系</td>
+                    <td>2022 - 2024</td>
+                </tr>
+            </table>
+        </section>
         
-        <h2>工作經驗</h2>
-        <table>
-            <tr>
-                <th>機構</th>
-                <th>地點</th>
-                <th>年份</th>
-            </tr>
-            <tr>
-                <td>資訊部門</td>
-                <td>台北-桃園-台北</td>
-                <td>2016-現在</td>
-            </tr>
-        </table>
+        <section id="experience">
+            <h2>工作經驗</h2>
+            <table>
+                <tr>
+                    <th>機構</th>
+                    <th>地點</th>
+                    <th>年份</th>
+                </tr>
+                <tr>
+                    <td>資訊部門</td>
+                    <td>台北-桃園-台北</td>
+                    <td>2016-現在</td>
+                </tr>
+            </table>
+        </section>
         
-        <h2>技能</h2>
-        <ul>
-            <li>1.HTML,CSS,python,Linux </li>
-            <li>2.電腦組裝 </li>
-            <li>3.跆拳道(黑帶一段)</li>
-            <li>4.調酒</li>
-        </ul>
+        <section id="skills">
+            <h2>技能</h2>
+            <ul>
+                <li>HTML, CSS, Python, Linux</li>
+                <li>電腦組裝</li>
+                <li>跆拳道 (黑帶一段)</li>
+                <li>調酒</li>
+            </ul>
+        </section>
         
-         <h2>證照</h2>
-        <table>
-            <tr>
-                <th>證照名稱</th>
-                <th>證照圖片</th>
-            </tr>
-            <tr>
-                <td>紅帽RHCSA證照</td>
-                <td><img src="https://raw.githubusercontent.com/blackbeef0/demodemo/refs/heads/main/demodemo/rh1.jpg" alt="這是一張圖片" width="300" height="200" title="這是浮動提示文字"></td>
-            </tr>
-            <tr>
-                <td>情資威脅分析CTIA認證</td>
-                <td><img src="https://raw.githubusercontent.com/blackbeef0/demodemo/refs/heads/main/demodemo/ct1.jpg" alt="這是一張圖片" width="300" height="200" title="這是浮動提示文字"></td>
-            </tr>
-            <tr>
-                <td>勞委會電腦硬體裝修</td>
-                <td><img src="path/to/certificate2.jpg" alt="XX 認證" width="100"></td>
-            </tr>
-         </table> 
-        <h2>作品成果</h2>
-        <a href="http://web3.nutc.edu.tw/~s3311231009/startbootstrap01/index88877.html" >Bootstrap應用</a>&nbsp;&nbsp;<a href="http://web3.nutc.edu.tw/~s3311231009/startbootstrap01/gitcmd7.txt">Git指令練習(Windows CMD)</a>
+        <section id="certificates">
+            <h2>證照</h2>
+            <table>
+                <tr>
+                    <th>證照名稱</th>
+                    <th>證照圖片</th>
+                </tr>
+                <tr>
+                    <td>紅帽RHCSA證照</td>
+                    <td><img src="https://raw.githubusercontent.com/blackbeef0/demodemo/refs/heads/main/demodemo/rh1.jpg" alt="紅帽RHCSA證照" width="300" height="200"></td>
+                </tr>
+                <tr>
+                    <td>情資威脅分析CTIA認證</td>
+                    <td><img src="https://raw.githubusercontent.com/blackbeef0/demodemo/refs/heads/main/demodemo/ct1.jpg" alt="情資威脅分析CTIA認證" width="300" height="200"></td>
+                </tr>
+                <tr>
+                    <td>勞委會電腦硬體裝修</td>
+                    <td><img src="path/to/certificate2.jpg" alt="勞委會電腦硬體裝修證書" width="100"></td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="projects">
+            <h2>作品成果</h2>
+            <a href="http://web3.nutc.edu.tw/~s3311231009/startbootstrap01/index88877.html">查看Bootstrap應用作品</a>&nbsp;&nbsp;
+            <a href="http://web3.nutc.edu.tw/~s3311231009/startbootstrap01/gitcmd7.txt">查看Git指令練習(Windows CMD)</a>
+        </section>
     </div>
-        
+
+    <!-- 返回頂部按鈕 -->
+    <button id="backToTop" onclick="scrollToTop()">返回頂部</button>
+
+    <script>
+        // 滾動到頂部的函數
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 顯示或隱藏返回頂部按鈕
+        window.onscroll = function() {
+            const button = document.getElementById('backToTop');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+    </script>
 </body>
 </html>
