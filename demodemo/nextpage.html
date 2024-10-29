@@ -1,3 +1,7 @@
+要為最後的文字「一切都是為了拯救這個世界」和「正義是絕對不會輸的」添加特效，可以使用 CSS 動畫。下面是更新後的 HTML 代碼，增加了樣式並使用新的 span 元素來實現淡入效果。
+
+更新後的 HTML 代碼：
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -24,6 +28,18 @@
         }
         #backToTop:hover {
             background-color: #0056b3;
+        }
+
+        /* 特效字樣式 */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s forwards; /* 設定動畫效果 */
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -120,6 +136,11 @@
     <!-- 返回頂部按鈕 -->
     <button id="backToTop" onclick="scrollToTop()">返回頂部</button>
 
+    <div class="fade-in">
+        <p>一切都是為了拯救這個世界</p>
+        <p>正義是絕對不會輸的</p>
+    </div>
+
     <script>
         // 滾動到頂部的函數
         function scrollToTop() {
@@ -139,7 +160,17 @@
             }
         };
     </script>
-   一切都是為了拯救這個世界 
 </body>
 </html>
-正義是絕對不會輸的
+
+說明：
+
+1. 淡入效果：將 .fade-in 類別應用於包含最後文字的新 div，這個類別使用 CSS 動畫將不透明度從 0 變為 1，實現淡入效果。
+
+
+2. 關鍵幀：@keyframes 規則定義了淡入效果。
+
+
+
+這樣，當頁面加載時，最後的文字將平滑地淡入顯示。你可以根據需要調整動畫的持續時間和效果！
+
