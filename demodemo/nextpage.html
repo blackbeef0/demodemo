@@ -152,25 +152,19 @@
             } else {
                 button.style.display = "none";
             }
-
-            // 檢查是否滑到底部
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-
-            if (scrollTop + windowHeight >= documentHeight) {
-                // 當滑到底部時淡出
-                fadeText.classList.add('hidden');
-            } else {
-                // 當未滑到底部時淡入
-                fadeText.classList.remove('hidden');
-                fadeText.style.opacity = 1; // 恢復不透明度
-            }
         };
 
-        // 設定淡出效果
+        // 當滑鼠進入文字時，觸發消失效果
         const fadeText = document.getElementById('fadeText');
-        fadeText.classList.add('fade-out'); // 加入初始樣式
+        fadeText.addEventListener('mouseover', function() {
+            fadeText.classList.add('hidden'); // 加入 .hidden 類別以觸發消失效果
+        });
+
+        // 讓文字在滑鼠移出時恢復
+        fadeText.addEventListener('mouseout', function() {
+            fadeText.classList.remove('hidden'); // 移除 .hidden 類別以恢復顯示
+            fadeText.style.opacity = 1; // 恢復不透明度
+        });
     </script>
 </body>
 </html>
