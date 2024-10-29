@@ -1,3 +1,7 @@
+要實現滑到底部時文字慢慢淡出，然後滑回時再淡入的效果，你可以利用 scroll 事件來檢測滾動位置。當用戶滾動到頁面底部時，文字會淡出；當用戶滾回時，文字會淡入。以下是修改後的完整 HTML 代碼：
+
+修改後的 HTML 代碼：
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -152,15 +156,45 @@
             } else {
                 button.style.display = "none";
             }
+
+            // 檢查是否滑到底部
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (scrollTop + windowHeight >= documentHeight) {
+                // 當滑到底部時淡出
+                fadeText.classList.add('hidden');
+            } else {
+                // 當未滑到底部時淡入
+                fadeText.classList.remove('hidden');
+                fadeText.style.opacity = 1; // 恢復不透明度
+            }
         };
 
-        // 在頁面加載後觸發消失效果
-        window.onload = function() {
-            const fadeText = document.getElementById('fadeText');
-            setTimeout(() => {
-                fadeText.classList.add('hidden'); // 加入 .hidden 類別以觸發消失效果
-            }, 8000); // 延遲 8 秒後開始消失
-        };
+        // 設定淡出效果
+        const fadeText = document.getElementById('fadeText');
+        fadeText.classList.add('fade-out'); // 加入初始樣式
     </script>
 </body>
 </html>
+
+代碼說明：
+
+1. CSS：
+
+維持與之前的樣式相同，使用 .fade-out 和 .hidden 類別來控制透明度的變化。
+
+
+
+2. JavaScript：
+
+在 window.onscroll 函數內部，增加檢查滾動位置的代碼。當滑到頁面底部時，將 fadeText 的 hidden 類別添加進去，使其淡出；當未滑到底部時，則移除 hidden 類別，並恢復不透明度，實現淡入效果。
+
+
+
+
+使用方法：
+
+將上述代碼複製並粘貼到 HTML 文件中，然後在瀏覽器中打開該文件。當滾動到頁面底部時，「一切都是為了拯救這個世界」和「正義是絕對不會輸的」這兩行文字將會慢慢淡出。當滾回時，文字將會淡入。
+
