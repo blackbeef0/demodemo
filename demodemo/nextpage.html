@@ -26,14 +26,14 @@
             background-color: #0056b3;
         }
 
-        /* 特效字樣式 */
-        .fade-in {
-            opacity: 0;
-            transition: opacity 2s; /* 設定淡入效果 */
+        /* 消失特效樣式 */
+        .fade-out {
+            opacity: 1; /* 預設為不透明 */
+            transition: opacity 3s; /* 設定消失效果 */
         }
 
-        .fade-in.show {
-            opacity: 1; /* 當加入.show類別時，變為不透明 */
+        .fade-out.hidden {
+            opacity: 0; /* 加入 .hidden 類別後變為透明 */
         }
     </style>
 </head>
@@ -130,7 +130,7 @@
     <!-- 返回頂部按鈕 -->
     <button id="backToTop" onclick="scrollToTop()">返回頂部</button>
 
-    <div class="fade-in" id="fadeText">
+    <div class="fade-out" id="fadeText">
         <p>一切都是為了拯救這個世界</p>
         <p>正義是絕對不會輸的</p>
     </div>
@@ -154,10 +154,12 @@
             }
         };
 
-        // 在頁面加載後顯示淡入效果
+        // 在頁面加載後觸發消失效果
         window.onload = function() {
             const fadeText = document.getElementById('fadeText');
-            fadeText.classList.add('show'); // 加入 .show 類別以觸發淡入效果
+            setTimeout(() => {
+                fadeText.classList.add('hidden'); // 加入 .hidden 類別以觸發消失效果
+            }, 1000); // 延遲 1 秒後開始消失
         };
     </script>
 </body>
