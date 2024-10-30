@@ -6,6 +6,59 @@
     <link rel="stylesheet" href="styles2.css">
     <title>履歷表</title>
     <style>
+ /* CSS 代碼 */
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul.drop-down-menu {
+            display: inline-block;
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        ul.drop-down-menu li {
+            position: relative;
+            white-space: nowrap;
+            padding: 10px; /* 調整內部間距 */
+        }
+
+        ul.drop-down-menu > li {
+            float: left;
+        }
+
+        ul.drop-down-menu a {
+            color: #333;
+            text-decoration: none;
+            transition: opacity 0.3s ease; /* 只對透明度進行過渡 */
+        }
+
+        ul.drop-down-menu a.transparent {
+            opacity: 0; /* 透明度 */
+        }
+
+        ul.drop-down-menu ul {
+            position: absolute;
+            z-index: 99;
+            left: 0;
+            top: 100%;
+            min-width: 180px;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        ul.drop-down-menu li:hover > ul {
+            display: block;
+            opacity: 1;
+        }
+
+        ul.drop-down-menu ul li {
+            padding: 10px; /* 調整內部間距 */
+        }
+
         /* 返回頂部按鈕的樣式 */
         #backToTop {
             display: none; /* 預設隱藏 */
@@ -29,7 +82,7 @@
         /* 消失特效樣式 */
         .fade-out {
             opacity: 1; /* 預設為不透明 */
-            transition: opacity 5s; /* 設定消失效果 */
+            transition: opacity 3s; /* 設定消失效果 */
         }
 
         .fade-out.hidden {
@@ -107,15 +160,15 @@
                 </tr>
                 <tr>
                     <td>紅帽RHCSA證照</td>
-                    <td><img src="https://raw.githubusercontent.com/blackbeef0/demodemo/refs/heads/main/demodemo/rh1.jpg" alt="紅帽RHCSA證照" width="300" height="200"></td>
+                    <td><img src="https://raw.githubusercontent.com/blackbeef0/demodemo/refs/heads/main/demodemo/rh1.jpg" alt="紅帽RHCSA證照" width="400" height="200"></td>
                 </tr>
                 <tr>
                     <td>情資威脅分析CTIA認證</td>
-                    <td><img src="https://raw.githubusercontent.com/blackbeef0/demodemo/refs/heads/main/demodemo/ct1.jpg" alt="情資威脅分析CTIA認證" width="300" height="200"></td>
+                    <td><img src="https://raw.githubusercontent.com/blackbeef0/demodemo/refs/heads/main/demodemo/ct1.jpg" alt="情資威脅分析CTIA認證" width="400" height="200"></td>
                 </tr>
                 <tr>
                     <td>勞委會電腦硬體裝修</td>
-                    <td><img src="https://raw.githubusercontent.com/blackbeef0/demodemo/refs/heads/main/demodemo/L1.jpg" alt="勞委會電腦硬體裝修證書" width="300" height="200"></td>
+                    <td><img src="https://raw.githubusercontent.com/blackbeef0/demodemo/refs/heads/main/demodemo/L1.jpg" alt="勞委會電腦硬體裝修證書" width="400" height="200"></td>
                 </tr>
                 </tr>
             </table>
@@ -131,10 +184,12 @@
     <!-- 返回頂部按鈕 -->
     <button id="backToTop" onclick="scrollToTop()">返回頂部</button>
 
-    <div class="fade-out" id="fadeText">
-        <p>一切都是為了拯救這個世界 正義是不會輸的</p>
-        
-    </div>
+      <ul class="drop-down-menu">
+        <li>
+            <a href="#">一切都是為了拯救這個世界 正義是絕對不會輸的</a>
+            
+        </li>
+    </ul>
 
     <script>
         // 滾動到頂部的函數
@@ -148,23 +203,24 @@
         // 顯示或隱藏返回頂部按鈕
         window.onscroll = function() {
             const button = document.getElementById('backToTop');
-            if (document.documentElement.scrollTop > 100) {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
                 button.style.display = "block";
             } else {
                 button.style.display = "none";
             }
         };
 
-        // 當滑鼠進入文字時，觸發消失效果
-        const fadeText = document.getElementById('fadeText');
-        fadeText.addEventListener('mouseover', function() {
-            fadeText.classList.add('hidden'); // 加入 .hidden 類別以觸發消失效果
-        });
+        
+        // JavaScript 代碼
+        const menuItems = document.querySelectorAll('.drop-down-menu a');
 
-        // 讓文字在滑鼠移出時恢復
-        fadeText.addEventListener('mouseout', function() {
-            fadeText.classList.remove('hidden'); // 移除 .hidden 類別以恢復顯示
-            fadeText.style.opacity = 1; // 恢復不透明度
+        menuItems.forEach(item => {
+            item.addEventListener('mouseover', function() {
+                this.classList.add('transparent'); // 加上透明類別
+                setTimeout(() => {
+                    this.classList.remove('transparent'); // 5秒後移除透明類別
+                }, 5000);
+            });
         });
     </script>
 </body>
