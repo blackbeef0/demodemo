@@ -7,57 +7,15 @@
     <title>履歷表</title>
     <style>
  /* CSS 代碼 */
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        ul.drop-down-menu {
-            display: inline-block;
-            font-family: 'Open Sans', Arial, sans-serif;
-            font-size: 13px;
-        }
-
-        ul.drop-down-menu li {
-            position: relative;
-            white-space: nowrap;
-            padding: 10px; /* 調整內部間距 */
-        }
-
-        ul.drop-down-menu > li {
-            float: left;
-        }
-
         ul.drop-down-menu a {
-            color: #333;
-            text-decoration: none;
-            transition: opacity 0.3s ease; /* 只對透明度進行過渡 */
-        }
+    color: #333;
+    text-decoration: none;
+    transition: opacity 0.3s ease; /* 透明度過渡效果 */
+}
 
-        ul.drop-down-menu a.transparent {
-            opacity: 0; /* 透明度 */
-        }
-
-        ul.drop-down-menu ul {
-            position: absolute;
-            z-index: 99;
-            left: 0;
-            top: 100%;
-            min-width: 180px;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        ul.drop-down-menu li:hover > ul {
-            display: block;
-            opacity: 1;
-        }
-
-        ul.drop-down-menu ul li {
-            padding: 10px; /* 調整內部間距 */
-        }
+ul.drop-down-menu a.transparent {
+    opacity: 0; /* 滑鼠懸停時透明 */
+}
 
         /* 返回頂部按鈕的樣式 */
         #backToTop {
@@ -80,11 +38,6 @@
         }
 
         /* 消失特效樣式 */
-        .fade-out {
-            opacity: 1; /* 預設為不透明 */
-            transition: opacity 3s; /* 設定消失效果 */
-        }
-
         .fade-out.hidden {
             opacity: 0; /* 加入 .hidden 類別後變為透明 */
         }
