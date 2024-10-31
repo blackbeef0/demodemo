@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>混淆示例</title>
 </head>
 <body>
@@ -9,11 +10,11 @@
     <div id="content"></div>
     
     <script>
-        // 將你的 Base64 編碼內容放入這個變數
-        const encodedHtml = 'PGRpdj4KICA8aDE+5o6o5YaN5oCn5pSv5oiQPC9oMT4KICA8cD7lkIjmqLzljrvkuovmnpzljJbku4nvvIzmsqHmnI3liqHlronoo4HlsIbmmK8uPC9wPgo8L2Rpdj4=';
+        // Base64 編碼的 HTML 內容
+        const encodedHtml = 'PGRpdj4KICAgIDxoMT7mraHov47kvobliLDmiJHnmoTntrLnq5k8L2gxPgogICAgPHA+6YCZ5piv5LiA5q6156+E5L6L5YWn5a6544CCPC9wPgo8L2Rpdj4=';
 
-        // 使用 JavaScript 來解碼並插入到頁面
-        document.getElementById("content").innerHTML = atob(encodedHtml);
+        // 使用 JavaScript 解碼並插入到頁面中
+        document.getElementById("content").innerHTML = decodeURIComponent(escape(atob(encodedHtml)));
     </script>
 </body>
 </html>
