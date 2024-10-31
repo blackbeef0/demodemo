@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>混淆示例</title>
+</head>
+<body>
+    <!-- 預留一個空的區域，準備放解碼後的 HTML 內容 -->
+    <div id="content"></div>
+    
+    <script>
+        // 將你的 Base64 編碼內容放入這個變數
+        const encodedHtml = 'PGRpdj4KICA8aDE+5o6o5YaN5oCn5pSv5oiQPC9oMT4KICA8cD7lkIjmqLzljrvkuovmnpzljJbku4nvvIzmsqHmnI3liqHlronoo4HlsIbmmK8uPC9wPgo8L2Rpdj4=';
+
+        // 使用 JavaScript 來解碼並插入到頁面
+        document.getElementById("content").innerHTML = atob(encodedHtml);
+    </script>
+</body>
+</html>
